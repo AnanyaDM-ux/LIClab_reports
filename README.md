@@ -61,7 +61,7 @@ W = {2 I<sub>D</sub> L}/{u<sub>n</sub> C<sub>ox</sub>} (V<sub>GS</sub> - V<sub>t
 By substituting the known parameters (including process-dependent values for (u<sub>n</sub>) and (C<sub>ox</sub>), we can determine the required width ( W ) to achieve the desired drain current of 55µA.
 
 ### Parameters to Substitute:
-- \( I<sub>D</sub> = 55 \, \mu A \),
+- \( I<sub>D</sub> = 55 \, u<sub>n</sub> \),
 - \( L ) is the length of the NMOS transistor,
 - \( u<sub>n</sub>) and \( C<sub>ox</sub>} \) are process-dependent constants (typically given in the datasheet or technology library),
 - \( V<sub>GS</sub> = 0.9 \, V \),
@@ -128,6 +128,11 @@ Hence Q point= (1.745V, 55.5uA)
 
 
 ### Circuit Diagram 2:
+![Image](https://github.com/user-attachments/assets/34782522-ccf9-47a9-a6dd-cfde838df83e)
+
+### Components: 
+PMOSFET,NMOSFET (180nm), voltage supply(1.8,0.7), AC ground, wires.
+
 
 ### Theory :
 
@@ -142,7 +147,53 @@ DC analysis: In DC analysis the goal is to establish the stable operationg point
 <br>where g<sub>m</sub> is transconductance. Therefore, The volatge gain of the amplifier is give by \
 <br>A<sub>v</sub>= -g<sub>m</sub>(R<sub>D</sub>||R<sub>L</sub>\)
 <br>The negative sign indicates the 180 degree phase shift between the input and output signals. The input impedance is primarilydetermined by the gate biasing resitors whereas output impedance is largely influenced by the resistor R<sub>D</sub> . At low frequency the gain is effected by coupling capacitors and bypass capacitors, while at high frequencies by paracitic capacitors.\
+
+## NMOS Transistor in Saturation Region
+
+For the NMOS transistor to operate in the saturation region, the condition must be met:
+
+\[
+V<sub>DS</sub> = V<sub>GS</sub> - V<sub>th</sub>
+\]
+
+Where:
+- \( V<sub>GS</sub> \) is the gate-to-source voltage (given as 0.9V),
+- \( V<sub>DS</sub> \) is the drain-to-source voltage,
+- \( V<sub>th</sub> \) is the threshold voltage of the NMOS.
+
+The drain current in the saturation region is given by:
+
+\[
+I<sub>D</sub> = {1}/{2} u<sub>n</sub> C<sub>ox</sub> {W}/{L} (V<sub>GS</sub> - V<sub>th</sub>)<sup>2</sup>
+\]
+
+Where:
+- \( I<sub>D</sub> \) is the drain current (55µA),
+- \( u<sub>n</sub>\) is the electron mobility,
+- \( C<sub>ox</sub> \) is the oxide capacitance per unit area,
+- \( W \) is the width of the NMOS transistor,
+- \( L \) is the length of the NMOS transistor,
+- \( V<sub>GS</sub> \) is the gate-to-source voltage,
+- \( V<sub>th</sub> \) is the threshold voltage.
+
+## Width Calculation for Desired Current
+
+Rearranging the equation for (W):
+
+\[
+W = {2 I<sub>D</sub> L}/{u<sub>n</sub> C<sub>ox</sub>} (V<sub>GS</sub> - V<sub>th</sub>)<sup>2</sup>}
+\]
+
+By substituting the known parameters (including process-dependent values for (u<sub>n</sub>) and (C<sub>ox</sub>), we can determine the required width ( W ) to achieve the desired drain current of 55µA.
+
+### Parameters to Substitute:
+- \( I<sub>D</sub> = 55 \, u<sub>n</sub> \),
+- \( L ) is the length of the NMOS transistor,
+- \( u<sub>n</sub>) and \( C<sub>ox</sub>} \) are process-dependent constants (typically given in the datasheet or technology library),
+- \( V<sub>GS</sub> = 0.9 \, V \),
+- \( V<sub>th</sub> \) is the threshold voltage (typically provided in the datasheet).
 <br>
+
 ### Procedure :
 1. Construct the common-source amplifier circuit in LTspice following the provided schematic.
 2. Set the resistor value to 1KΩ, the DC supply voltage to 1.8V, and the gate voltage to 0.9V.
