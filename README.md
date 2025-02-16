@@ -119,11 +119,11 @@ Hence Q point= (1.745V, 55.5uA)
     we got frequency = 210.45GHz\
           Gain(dB) = -9.104dB\
 ### Inference: 
-1. Width is directly proportional to Drain current. Hence other parameters become constant.
-2. From DC analysis we get the dc operating point and confirms whether the mosfet is in saturation region.
-3. Transient analysis shows how the mosfet behaves for the time varying AC signal(sine wave).
-4. We get amplified output with phase shift of 180 degree between input and output.
-5. From AC analysis we get gain and frequency.
+1. The drain current increases proportionally with the MOSFET’s width while keeping other parameters unchanged.
+2. DC Analysis determines the DC operating point and verifies whether the MOSFET remains in the saturation region.
+3. Transient Analysis examines the MOSFET’s response to a time-varying AC input (sine wave).
+4. The circuit provides an amplified output, with a 180-degree phase shift between the input and output signals.
+5. AC Analysis helps determine the circuit’s gain and frequency characteristics.
    <br>
 
 
@@ -144,13 +144,62 @@ DC analysis: In DC analysis the goal is to establish the stable operationg point
 <br>The negative sign indicates the 180 degree phase shift between the input and output signals. The input impedance is primarilydetermined by the gate biasing resitors whereas output impedance is largely influenced by the resistor R<sub>D</sub> . At low frequency the gain is effected by coupling capacitors and bypass capacitors, while at high frequencies by paracitic capacitors.\
 <br>
 ### Procedure :
-1. Build the common source amplifier circuit as the circuit diagram using LTspice.
-2. Set the Resistor value as 1K, DC voltage as 1.8V, Gate voltage as 0.9V.
-3. Download the library file [tsmc018 (1).txt](https://github.com/user-attachments/files/18785407/tsmc018.1.txt)
-4. Create a folder. Save the library file and LTspice file to the folder.
-5. Import the library file to LTspice using spice directive(.op).
-6. Set the mosfet model name CMOSN as given in the library file, length as 180nm, width as 1uF.
-7. Find the current value for the given power rating.
-8. DC analysis: In edit simulation option, change to dc offset to get list of values obtained from the circuit. We should get the calculated current value in the simulation result.So that we need vary the value of width since width is directly proportional to Drain current(Id) keeping other parameters constant.
-9. Transient analysis: In edit simulation option, change from dc offset to transient. Set the dc offset as 0.9V, Amplitude 50mV, frequency 1KHz. Keep stop time for 3ms and run to get the expected waveform.
-10. AC analysis : In edit simulation option, change from transient to ac analysis. Set type of sweep as decade, number of points per decade as 20, start and stop frequency as 0.1Hz and 1THz to get the expected ac waveform. 
+1. Construct the common-source amplifier circuit in LTspice following the provided schematic.
+2. Set the resistor value to 1KΩ, the DC supply voltage to 1.8V, and the gate voltage to 0.9V.
+3. Download the library file tsmc018 (1).txt from this link.
+4. Create a new folder and save both the library file and the LTspice project file in it.
+5. Import the library file into LTspice using the .op Spice directive.
+6. Assign the MOSFET model name CMOSN from the library file, with a channel length of 180nm and a width of 1µm.
+7. Determine the drain current based on the given power specifications.
+8. DC Analysis: In the simulation settings, select DC Sweep to observe a range of values obtained from the circuit. Adjust the transistor width since the drain 
+   current (Iₙ) is directly proportional to width while keeping other parameters fixed. Ensure that the calculated and simulated currents match.
+9. Transient Analysis: Modify the simulation settings from DC Sweep to Transient mode. Set the DC offset to 0.9V, amplitude to 50mV, and frequency to 1kHz. Run 
+   the simulation with a stop time of 3ms to generate the expected waveform.
+10.AC Analysis: Switch from Transient to AC Analysis in the simulation settings. Choose a decade sweep with 20 points per decade and set the frequency range from 
+   0.1Hz to 1THz to obtain the desired AC response.
+
+### Calculatiom: 
+Take power as 100uW\
+We know that P=VI , where V=1.8V here \
+Therefore, I = 55.5uA\
+We get Vout= 1.704 which is V<sub>DS</sub>\
+we get Q point = (V<sub>DS</sub>, I<sub>D</sub>)= (1.704V, 55.5uA)\
+
+### Tabular Column:
+| Width | CurrentI<sub>D</sub> | V<sub>out</sub>  |
+|-------|----------------------|------------------|
+|  1um  |        50.9uA        |      1.704V      |
+|1.01um |        51.4uA        |      1.704V      |
+|1.04um |        52.9uA        |      1.704V      |
+|1.06um |        53.9uA        |      1.704V      |
+|1.09um |        55.3uA        |      1.704V      |
+|1.092um|        55.4uA        |      1.704V      |
+|1.093um|        55.5uA        |      1.704V      |
+<br>
+
+### Simulation Result:
+1. DC analysis :
+   ![Image](https://github.com/user-attachments/assets/5e143440-2592-4977-a32f-65df705e79ad)
+    we got I<sub>D</sub>= 55.5uA\
+          width = 1.093um\
+   Vout= 1.704V\
+   we get DC operating point as (1.704V, 55.5uA)
+  
+2. Transient analysis:
+   ![Image](https://github.com/user-attachments/assets/42a6d74e-5929-43ee-b509-860aeef264ed)
+    we got V<sub>out</sub>= 1.704V for width of 1.093um\
+   And a phase shift of 180 degree.
+  
+3. AC analysis:
+   ![Image](https://github.com/user-attachments/assets/5a442856-bc1a-40ce-924e-62b7c430a3ac)
+we got frequency = 75.739GHz\
+          Gain(dB) = 70.149mdB
+
+### Inference: 
+1. A MOSFET in a diode-connected configuration always operates in the saturation region.
+2. The drain current increases proportionally with the MOSFET's width, assuming all other parameters remain unchanged.
+3. DC Analysis helps determine the operating point and verifies whether the MOSFET is functioning in the saturation region.
+4. Transient Analysis illustrates the MOSFET's response to a time-varying AC input (sine wave).
+5. The circuit produces an amplified output, exhibiting a 180-degree phase shift between the input and output signals.
+6. AC Analysis provides insight into the circuit's gain and frequency response.
+   <br>
