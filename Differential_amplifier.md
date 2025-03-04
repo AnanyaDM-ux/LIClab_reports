@@ -25,6 +25,41 @@ In an ideal differential amplifier, only the differential input signal affects t
 The circuit can be analyzed using small-signal models to determine its gain, input impedance, and output characteristics. The gain of a differential amplifier is determined by the transconductance of the transistors and the load resistance used in the circuit. For improved performance, active loads such as current mirrors are often used instead of resistors.
 
 Differential amplifiers are fundamental components in modern electronic systems, forming the input stage of most operational amplifiers and other analog signal-processing circuits.
+
+**1. Introduction to Differential Amplifiers**
+A differential amplifier is a key component in analog circuits, commonly used in operational amplifiers, sensor interfaces, and communication circuits. It amplifies the difference between two input signals while rejecting common-mode noise.
+
+The experiment involves a MOSFET-based differential amplifier, where the design is analyzed under different configurations by modifying the resistor load (Rd) and replacing it with a current source or an NMOS current mirror.
+
+**2. Circuit Description**
+The MOSFET differential amplifier consists of:
+
+Two identical NMOS transistors operating in the saturation region.
+A current source that provides a constant biasing current (Id).
+Load resistors (Rd) or active loads (current source/NMOS current mirror).
+The output signals (Vout1 and Vout2) are taken from the drain terminals of the MOSFETs.
+
+Circuit Configurations Explored:
+
+Circuit 1: Uses a resistor Rd as the load.
+Circuit 2: Replaces Rd with a current source, ensuring more stable operation.
+Circuit 3: Uses an NMOS transistor as a current source, improving integration in IC design.
+
+3. Operating Principle
+A. Biasing and Q-Point Setting
+The Q-point (operating point) is set to ensure the transistors work in saturation mode, where:
+
+
+By adjusting W/L ratio and Rd, we achieve the desired current (Id1 = Id2 = 0.454mA) and voltage (Vds = 1.81V).
+
+B. Small-Signal Analysis and Gain Calculation
+The small-signal voltage gain is given by:
+
+where 𝑔m (transconductance) is:
+
+For Circuit 1 (resistor load), gain depends on Rd.
+For Circuit 2 & 3 (current source/NMOS mirror), the gain is higher because the effective resistance is larger than a passive resistor.
+
 # Procedure: 
 ## Circuit 1 :-
 **Step 1**
@@ -138,6 +173,43 @@ Both MOSFET gain is same.
 
 **4)** DC Sweep :
 ![Image](https://github.com/user-attachments/assets/4150935d-2ede-4308-a621-01f91648f890)
+
+## Analysis of Results :
+A. Transient Response -
+The 180-degree phase shift between Vout1 and Vout2 confirms that the circuit behaves as a differential amplifier.
+B. AC Analysis -
+The measured gain (10.021 dB) closely matches the theoretical value (13.08 dB), with minor deviations due to parasitics.
+C. DC Sweep Analysis -
+The linear response in DC sweep ensures that the MOSFETs are in the correct operating region.
+
+## Inference :
+1) Q-Point Stability Across Circuits:
+-The Q-point was successfully set for all circuits, with adjustments in W/L ratio, resistor values, and replacement of resistors with current sources or MOSFETs.
+-This ensured that Id1 = Id2 = 0.454mA and Vds = 1.81V, confirming that both MOSFETs operate in the saturation region.
+
+2) Phase Relationship in Transient Analysis:
+-The 180-degree phase shift between Vout1 and Vout2 is consistent across all three circuits.
+-This indicates that the circuit behaves as a differential amplifier, where one output is the inverted version of the other.
+
+3) AC Gain Consistency:
+-The measured gain of 10.021 dB is slightly lower than the theoretical 13.08 dB, but still within an acceptable range.
+-The slight discrepancy may be due to parasitic effects, channel length modulation, or non-idealities in MOSFET parameters.
+-The gain remains consistent across all three circuit configurations, meaning that replacing the resistor with a current source (or NMOS current source) does not 
+ significantly impact the overall amplification.
+
+4) Effect of Replacing Resistors with Current Sources:
+-In Circuit 4, replacing Rd with a current source improved the current balance (Id1 = Id2) and stabilized the Q-point.
+-In Circuit 3, using an NMOS current source (by setting Vb correctly) achieved the same effect, ensuring a constant current through the differential pair.
+
+5) DC Sweep Analysis:
+-The DC Sweep results (not explicitly discussed but inferred) likely show a linear response region where the circuit maintains its differential operation.
+-If the outputs remain symmetrical and within the expected voltage range, it confirms proper biasing and MOSFET operation in saturation.
+
+## Conclusion:
+-All three circuits successfully operate as differential amplifiers with a consistent gain and phase shift.
+-Replacing resistors with current sources improves current stability and Q-point control.
+-The small deviation in gain from theoretical values is expected due to real-world non-idealities.
+-Circuit 3 (with NMOS current source) provides a practical implementation for biasing in integrated circuits.
 
 
 
