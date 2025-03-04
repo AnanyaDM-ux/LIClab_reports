@@ -5,11 +5,16 @@ Perform DC analysis, transient analysis,frequency respose and extract the requir
 ## Circuit Diagram
 **With Resistor Rss.**  
 ![Image](https://github.com/user-attachments/assets/3271d4ae-a169-4dc4-8c62-69e126b48015) 
-**With current source**  
+
+
+**With current source** 
+![Image](https://github.com/user-attachments/assets/8273940e-f3ab-4c10-ac5b-e28f935c3620)
   
 
 **When the current source is replaced by NMOSFET**  
-![Image](https://github.com/user-attachments/assets/2a208a29-d99b-42bb-8d9a-e49d194c0abd)
+![Image](https://github.com/user-attachments/assets/c7a4ef7d-65dc-4b2d-ad32-89fdf846e4cd)
+
+
 ## Theory
 A differential amplifier is a circuit that amplifies the difference between two input signals while rejecting any signals common to both inputs. It is widely used in analog circuit design, particularly in operational amplifiers and communication systems.
 
@@ -20,12 +25,15 @@ In an ideal differential amplifier, only the differential input signal affects t
 The circuit can be analyzed using small-signal models to determine its gain, input impedance, and output characteristics. The gain of a differential amplifier is determined by the transconductance of the transistors and the load resistance used in the circuit. For improved performance, active loads such as current mirrors are often used instead of resistors.
 
 Differential amplifiers are fundamental components in modern electronic systems, forming the input stage of most operational amplifiers and other analog signal-processing circuits.
-# Procedure:   
+# Procedure: 
+## Circuit 1 :-
 **Step 1**
-DC analysis: Design RSS and Rd.  
-Find the q point of the mosfet.    
+DC analysis: Design Rd and Rss.  
+Find the q point of the mosfet.
+M1 Q-point=(1.81V,0.454mA)| Vgs=1.02V
+M2 Q-point=(1.81V,0.454mA)| Vgs=1.02V
 Analysis :  
-1)Increase ViCm to 1.2V and observe Vocm,Vp. justify the results.  
+1)Increase ViCM to 1.9V and observe Vocm,Vp. justify the results.  
 2) Calulate maximum input swing and output swing.  
 3) Gain equation using small signal model.  
 **Step 2**  
@@ -34,7 +42,17 @@ Apply Vin p-p max and verify the o/p, calculate gain if the o/p is linear.
 **Step 3**  
 Ac analysis.    
 Find te 3dB bandwidth.  
-## With Rss resistor
+## Circuit 2 :-
+Repeat the same procedure as before 
+Dc Analysis -> fix the appropriate Q point 
+Transient Analysis -> Output and input swing
+Frequency Analysis -> Bandwidth
+## Circuit 3 :-
+Fix Vb(appropriate value),W/L of M3
+DC analysis 
+Transient Analysis
+AC analysis
+
 Dc analysis:
 when ViCm = 1V
 Vocm=1.1V
