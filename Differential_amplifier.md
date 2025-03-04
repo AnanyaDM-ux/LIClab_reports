@@ -43,25 +43,23 @@ Apply Vin p-p max and verify the o/p, calculate gain if the o/p is linear.
 Ac analysis.    
 Find te 3dB bandwidth.  
 ## Circuit 2 :-
-Repeat the same procedure as before 
-Dc Analysis -> fix the appropriate Q point 
-Transient Analysis -> Output and input swing
+Repeat the same procedure as before\ 
+Dc Analysis -> fix the appropriate Q point\
+Transient Analysis -> Output and input swing\
 Frequency Analysis -> Bandwidth
 ## Circuit 3 :-
-Fix Vb(appropriate value),W/L of M3
-DC analysis 
-Transient Analysis
+Fix Vb(appropriate value),W/L of M3\
+DC analysis\
+Transient Analysis\
 AC analysis
 
-Dc analysis:
-when ViCm = 1V
-Vocm=1.1V
-Vp=0.4V
-Id=0.25mA
-![Image](https://github.com/user-attachments/assets/a76109bf-f904-4dba-aabb-cbbbfa041a37)
-Q point of the mosfet:(Vds,Id)@Vgs constant=(0.7V,0.25m)@Vgs=0.6V
-
-![image](https://thub.com/user-attachments/assets/ef7ebb49-df71-4195-8d35-65dd2094e162)
+## DC analysis:
+when ViCm = 1.72 V
+Vocm=1.81V
+Vp=0.7V
+Vdd=3.3V
+Id=0.454mA
+Q point of both mosfets:(Vds,Id)@Vgs constant=(1.81V,0.545m)@Vgs=1.02V
 
 ## Analysis:
 **a)** when ViCm is 1.2V
@@ -70,3 +68,78 @@ Vout=0.75V
 Vp=0.54V
 Id=0.35mA
 Vgs 0.675V
+
+ ## Calculations:
+ ![Image](https://github.com/user-attachments/assets/c5ce562f-55c6-4436-b074-ff03b12d9f22)
+
+## Results :
+**Circuit 1**
+**1)** Setting up the Q-point :
+![Image](https://github.com/user-attachments/assets/e8111ea9-155f-4799-8f59-a506ef8311b2)
+
+I have changed the Rd and W/L values in the circuit diagram to get the desired Q-point.\
+I have changed the W value from  0.00130mm to 0.00248mm.\
+I have changed the Rd value from 3.281K ohm to 3.286K ohm.
+I have kept same Q-point to both MOSFETS.
+**2)** Transient Analysis :
+![Image](https://github.com/user-attachments/assets/e2be59de-82c8-40ba-9efc-eddd8b3db88b)
+
+Here we can observe the voltage waveforms of Vout1 and Vout2 which is 180 degree phase shifted.
+
+**3)** AC Analysis :
+![Image](https://github.com/user-attachments/assets/1a67bc17-88eb-4a6c-8e4e-c5f76eae6a0f)
+
+Here we can observe the gain of 10.021 dB which is nearly equal to our calculated  gain value of 13.08 dB.
+Both MOSFET gain is same.
+
+**4)** DC Sweep :
+![Image](https://github.com/user-attachments/assets/3df004f3-ea6d-4b67-8b1b-7dce35cda4b0
+
+**Circuit 4**
+**1)** Setting up the Q-point :
+![Image](https://github.com/user-attachments/assets/a70d670c-3939-4119-ad15-57642030e7a9)
+
+Here I have replaced the Resistor to a current source of current value 0.909mA.
+Later we observed that id1 = id2 =0.454mA exactly and Vds=1.81V.
+
+**2)** Transient Analysis :
+![Image](https://github.com/user-attachments/assets/538830fa-ca41-4e7b-8b54-8d85b242c619) 
+
+Here wew can observe the voltage waveforms of Vout1 and Vout2 which is 180 degree phase shift.
+
+**3)** AC Analysis :
+![Image](https://github.com/user-attachments/assets/b82b93e4-bacd-45f0-92fe-2cd44295960e) 
+
+Here we observed the same gain as previous circuit1 of 10.021dB which is nearly equal to our calculated gain value of 13.08dB.
+Both MOSFET gain is same.
+
+**4)** DC Sweep :
+![Image](https://github.com/user-attachments/assets/f3d24081-8f0e-4221-ac6d-ee93d2fa0385)
+
+**Circuit 3** 
+**1)** Setting up the Q-point and finding Vb value :
+![Image](https://github.com/user-attachments/assets/d2c10ec6-4369-40dd-b90b-17c05844c5c7)
+
+Here I have replaced current source to NMOSFET by giving Vb=1.066 (Vb=Vp+Vth => =0.7+0.366 => 1.066V)
+By gioving thus Vb the MOSFET acts in saturation region which means it is acting like current source by flowing constant cutrrent.
+I changed W value of M3 from 0.0013mm to 0.004689mm to get 0.909mA.
+Later we observed that id1 = id2 =0.454mA exactly and Vds=1.81V.
+
+**2)** Transient Analysis :
+![Image](https://github.com/user-attachments/assets/264ab7f3-b746-4d66-b163-42f0d2c7c6e1)
+
+Here wew can observe the voltage waveforms of Vout1 and Vout2 which is 180 degree phase shift.
+
+**3)** AC Analysis :
+![Image](https://github.com/user-attachments/assets/0310e346-5db0-4073-bfeb-0afacf174cdb)
+
+Here we observed the same gain as previous circuit1 of 10.021dB which is nearly equal to our calculated gain value of 13.08dB.
+Both MOSFET gain is same.
+
+**4)** DC Sweep :
+![Image](https://github.com/user-attachments/assets/4150935d-2ede-4308-a621-01f91648f890)
+
+
+
+ 
+
