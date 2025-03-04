@@ -4,7 +4,7 @@
 Perform DC analysis, transient analysis,frequency respose and extract the required parameters.  
 ## Circuit Diagram
 **With Resistor Rss.**  
-![Image](https://github.com/user-attachments/assets/2e192266-cfd9-49f0-bb6e-c6fc76139817) 
+![Image](https://github.com/user-attachments/assets/3271d4ae-a169-4dc4-8c62-69e126b48015) 
 **With current source**  
   
 
