@@ -134,16 +134,10 @@ Vdd=3.3V
 Id=0.454mA
 Q point of both mosfets:(Vds,Id)@Vgs constant=(1.81V,0.545m)@Vgs=1.02V
 
-## Analysis:
-**a)** when ViCm is 1.2V
-Vout,Vp and Id increases respectively.
-Vout=0.75V
-Vp=0.54V
-Id=0.35mA
-Vgs 0.675V
 
  ## Calculations:
  ![Image](https://github.com/user-attachments/assets/c5ce562f-55c6-4436-b074-ff03b12d9f22)
+ ![Image](https://github.com/user-attachments/assets/b96a37ab-fd56-4e08-baaa-57123e8bf413)
 
 ## Results :
 **Circuit 1**
@@ -167,6 +161,16 @@ Both MOSFET gain is same.\
 
 **4)** DC Sweep :
 ![Image](https://github.com/user-attachments/assets/3df004f3-ea6d-4b67-8b1b-7dce35cda4b0
+
+**5)** Input and Output swing :
+![Image](https://github.com/user-attachments/assets/c2769838-bece-4b6e-8048-0daa568d7bf5)
+
+I got cut in  output swings when i changed the amplitude in Vin to 400mm.
+
+**6)** Vin v/s Vout :
+![Image](https://github.com/user-attachments/assets/ac4b5a2d-a194-4d89-b945-1a6663fba974)
+
+Here we observe Vout > Vin so the output is ampilified.
 
 **Circuit 2**\
 **1)** Setting up the Q-point :
